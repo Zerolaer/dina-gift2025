@@ -15,7 +15,7 @@ export default function App() {
   const [step, setStep] = useState<Steps>(0)
   const [wish, setWish] = useState<string>('')
 
-  const next = () => setStep(s => Math.min(6, (s + 1) as Steps))
+  const next = () => setStep(s => (s < 6 ? ((s + 1) as Steps) : s))
   const to = (s: Steps) => setStep(s)
 
   return (
