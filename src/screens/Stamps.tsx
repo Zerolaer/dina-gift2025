@@ -1,6 +1,7 @@
 
 import React, { useState } from 'react'
 import { motion } from 'framer-motion'
+import { Sound } from '../lib/Sound'
 
 const labels = [
   "Все совпадения случайны",
@@ -12,6 +13,7 @@ export function Stamps({ onNext }: { onNext: () => void }) {
   const [done, setDone] = useState(0)
 
   const stamp = () => {
+      Sound.chime();
     setDone(d => {
       const n = Math.min(3, d + 1)
       if (n === 3) setTimeout(onNext, 700)

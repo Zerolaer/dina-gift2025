@@ -1,6 +1,8 @@
 
 import React, { useEffect, useRef, useState } from 'react'
 import { motion } from 'framer-motion'
+import { Particles } from '../components/Particles'
+import { Sound } from '../lib/Sound'
 
 function Trail({ delay=0 }: {delay?: number}) {
   const ref = useRef<HTMLDivElement>(null)
@@ -31,7 +33,7 @@ export function IceMagic({ onNext }: { onNext: () => void }) {
       const n = Math.min(100, p + 2 + Math.random()*4)
       if (n >= 100) {
         clearInterval(id)
-        setTimeout(onNext, 500)
+        Sound.sparkle(); setTimeout(onNext, 500)
       }
       return n
     }), 80)

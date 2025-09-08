@@ -1,6 +1,7 @@
 
 import React, { useEffect } from 'react'
 import { motion, useAnimationControls } from 'framer-motion'
+import { Sound } from '../lib/Sound'
 
 export function Envelope({ onOpen }: { onOpen: () => void }) {
   const controls = useAnimationControls()
@@ -16,7 +17,7 @@ export function Envelope({ onOpen }: { onOpen: () => void }) {
     <div className="vh-screen w-full relative flex items-center justify-center">
       <motion.div animate={controls} className="relative">
         {/* Envelope body */}
-        <div className="w-[320px] h-[210px] bg-white/10 rounded-3xl border border-white/15 shadow-2xl backdrop-blur-md overflow-hidden">
+        <div className="w-[320px] h-[210px] bg-white/10 rounded-3xl border border-white/15 soft-shadow backdrop-blur-md overflow-hidden" style={{ perspective: 1000 }}>
           {/* Flap */}
           <motion.div
             initial={{ rotateX: 0 }}
@@ -31,7 +32,7 @@ export function Envelope({ onOpen }: { onOpen: () => void }) {
           <div className="absolute inset-0 flex items-center justify-center">
             <motion.button
               whileTap={{ scale: .96 }}
-              onClick={onOpen}
+              onClick={async ()=>{ Sound.sparkle(); await controls.start({ rotateX: [0, 20, -20, 0], transition: { duration: .8 } }); setTimeout(onOpen, 100); }}
               className="rounded-full px-6 py-6 bg-gradient-to-br from-gold to-white text-deep font-extrabold drop-shadow-glow"
             >
               Открой меня

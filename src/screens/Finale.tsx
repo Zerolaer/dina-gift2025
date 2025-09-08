@@ -1,6 +1,7 @@
 
 import React from 'react'
 import { motion } from 'framer-motion'
+import { BRIDE_NAME } from '../lib/config'
 
 export function Finale() {
   return (
@@ -12,7 +13,7 @@ export function Finale() {
       >
         <h3 className="headline mb-3">Мы едем в Милан! 🇮🇹</h3>
         <p className="sub mb-6">Олимпиада 2026 • Фигурное катание • Твоя мечта сбылась ♥</p>
-        <div className="text-white/70 text-sm">Я люблю тебя</div>
+        <div className="text-white/70 text-sm">Я люблю тебя, {BRIDE_NAME()}</div>
       </motion.div>
     </div>
   )

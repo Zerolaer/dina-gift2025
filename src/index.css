@@ -43,3 +43,35 @@
   background: linear-gradient(90deg, rgba(255,255,255,.0), rgba(255,255,255,.9), rgba(255,255,255,.0));
   filter: drop-shadow(0 0 6px rgba(255,255,255,.7));
 }
+
+
+/* Premium shimmer for ticket */
+.shimmer {
+  position: relative;
+  overflow: hidden;
+}
+.shimmer::after {
+  content: "";
+  position: absolute;
+  top: -100%;
+  left: -200%;
+  width: 200%;
+  height: 300%;
+  transform: rotate(20deg);
+  background: linear-gradient(120deg, transparent 30%, rgba(255,255,255,.45), transparent 70%);
+  animation: shine 2.6s linear infinite;
+}
+@keyframes shine {
+  0% { left: -200%; }
+  100% { left: 200%; }
+}
+
+/* 3D soft shadow for envelope */
+.soft-shadow {
+  box-shadow:
+    0 40px 80px rgba(0,0,0,.45),
+    0 20px 40px rgba(10,26,46,.4),
+    0 6px 14px rgba(10,26,46,.35);
+}
+
+.safe-pad { padding-bottom: env(safe-area-inset-bottom); }
