@@ -1,0 +1,1 @@
+{"root":["./src/app.tsx","./src/main.tsx","./src/types.d.ts","./src/components/logo.tsx","./src/components/particles.tsx","./src/lib/sound.ts","./src/lib/config.ts","./src/screens/envelope.tsx","./src/screens/finale.tsx","./src/screens/icemagic.tsx","./src/screens/stamps.tsx","./src/screens/ticket.tsx","./src/screens/welcome.tsx","./src/screens/wish.tsx"],"version":"5.9.2"}

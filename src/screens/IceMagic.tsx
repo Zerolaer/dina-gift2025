@@ -50,8 +50,8 @@ export function IceMagic({ onNext }: { onNext: () => void }) {
         animate={{ opacity: 1, y: 0 }}
         className="text-center px-6"
       >
-        <h3 className="headline mb-3">Магия льда</h3>
-        <p className="sub mb-6">Смотри, как коньки рисуют узоры…</p>
+        <h3 className="headline mb-3">Магия льда 🏒</h3>
+        <p className="sub mb-6">Смотри, как коньки рисуют олимпийские узоры… ⛸️</p>
         <div className="w-72 h-72 mx-auto rounded-full border-2 border-white/30 relative overflow-hidden">
           <div
             style={{ width: `${progress}%` }}

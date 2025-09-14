@@ -64,4 +64,40 @@ export class Sound {
     noise.start()
     noise.stop(ctx.currentTime + 1.7)
   }
+
+  static async olympicFanfare() {
+    const ctx = this.ensure()
+    // Olympic fanfare-like sound
+    const notes = [523, 659, 784, 1047] // C5, E5, G5, C6
+    notes.forEach((freq, i) => {
+      const o = ctx.createOscillator()
+      const g = ctx.createGain()
+      o.type = 'square'
+      o.frequency.value = freq
+      g.gain.setValueAtTime(0.0001, ctx.currentTime + i * 0.2)
+      g.gain.exponentialRampToValueAtTime(0.15, ctx.currentTime + i * 0.2 + 0.05)
+      g.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + i * 0.2 + 0.8)
+      o.connect(g).connect(ctx.destination)
+      o.start(ctx.currentTime + i * 0.2)
+      o.stop(ctx.currentTime + i * 0.2 + 0.8)
+    })
+  }
+
+  static async victory() {
+    const ctx = this.ensure()
+    // Victory sound with ascending notes
+    const notes = [261, 330, 392, 523, 659] // C4, E4, G4, C5, E5
+    notes.forEach((freq, i) => {
+      const o = ctx.createOscillator()
+      const g = ctx.createGain()
+      o.type = 'triangle'
+      o.frequency.value = freq
+      g.gain.setValueAtTime(0.0001, ctx.currentTime + i * 0.15)
+      g.gain.exponentialRampToValueAtTime(0.2, ctx.currentTime + i * 0.15 + 0.02)
+      g.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + i * 0.15 + 0.6)
+      o.connect(g).connect(ctx.destination)
+      o.start(ctx.currentTime + i * 0.15)
+      o.stop(ctx.currentTime + i * 0.15 + 0.6)
+    })
+  }
 }

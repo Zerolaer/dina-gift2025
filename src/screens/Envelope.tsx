@@ -33,9 +33,9 @@ export function Envelope({ onOpen }: { onOpen: () => void }) {
             <motion.button
               whileTap={{ scale: .96 }}
               onClick={async ()=>{ Sound.sparkle(); await controls.start({ rotateX: [0, 20, -20, 0], transition: { duration: .8 } }); setTimeout(onOpen, 100); }}
-              className="rounded-full px-6 py-6 bg-gradient-to-br from-gold to-white text-deep font-extrabold drop-shadow-glow"
+              className="rounded-full px-6 py-6 bg-gradient-to-br from-yellow-400 to-yellow-200 text-gray-800 font-extrabold drop-shadow-glow pulse-glow"
             >
-              Открой меня
+              🏆 Открой меня 🏆
             </motion.button>
           </div>
         </div>
